@@ -67,12 +67,12 @@ The following steps explain how to install and run the epic server:
 
 1. Download the latest version of the *epic* package [[https://epic.tech/downloads/][here]].
 
-2. In the terminal, navigate to the directory where you downloaded the
-   .deb file and execute the following command changing the argument
-   <your-epic-server.deb> to the name of your downloaded file:
+2. In the terminal, navigate to the directory where you downloaded the 
+   .zip file and execute the following command changing the argument
+   <your-epic-server.zip> to the name of your downloaded file:
 
     #+begin_src shell
-      sudo dpkg -i <your-epic-server.deb>
+      unzip <your-epic-server.zip>
     #+end_src
 
 #+ATTR_HTML: :id run_epic
@@ -80,11 +80,11 @@ The following steps explain how to install and run the epic server:
   :PROPERTIES:
   :CUSTOM_ID: run_epic
   :END:
-After you finished the installation, you can run it by executing the
+After you finished unzipping, you can run it by executing the
 following command in the terminal:
 
     #+begin_src shell
-      epic
+      ./epic
     #+end_src
 
 *If you are running the epic server for the first time, it will use*
@@ -128,7 +128,7 @@ directory. In the terminal, navigate to the directory in which you
 want Epic to store its files and run:
 
     #+begin_src shell
-      epic server config
+      ./epic server config
     #+end_src
     
 This will create an ~epic-server.toml~ file in the current directory
@@ -161,12 +161,12 @@ The following steps explain how to install and run the epic-wallet:
 1. Download the latest version of the *epic-wallet* package [[https://epic.tech/downloads/][here]].
 
 2. Open a new terminal window and navigate to the directory where you
-   downloaded the .deb file and execute the following command changing
-   the argument <your-epic-wallet.deb> to the name of your downloaded
+   downloaded the .zip file and execute the following command changing
+   the argument <your-epic-wallet.zip> to the name of your downloaded
    file:
 
     #+begin_src shell
-      sudo dpkg -i <your-epic-wallet.deb>
+      unzip <your-epic-wallet.zip>
     #+end_src
 
 #+ATTR_HTML: :id init_wallet
@@ -180,7 +180,7 @@ master seed file. For this, we need to run the following command in
 the terminal:
 
     #+begin_src shell
-      epic-wallet init
+      ./ epic-wallet init
     #+end_src
     
 You will then be prompted to enter a password. This password will be
@@ -189,7 +189,7 @@ this password every time you want to use your wallet. The output
 should be something like this:
 
     #+begin_src shell
-      File /home/yeastplume/.epic/main/epic-wallet.toml configured and created
+      File /home/[username]/.epic/main/epic-wallet.toml configured and created
       Please enter a password for your new wallet
       Password: 
       Confirm Password: 
@@ -207,12 +207,12 @@ default listener ports and many more options by editing this file.
 
 ** Initializing from a Custom Directory
 
-You can also keep epic wallet's data and configuration files in a
-custom directory. In the terminal, navigate to the directory in which
+You can also keep epic wallet's data and configuration files in the same
+ directory. In the terminal, navigate to the directory in which
 you want Epic to store its files and run:
 
     #+begin_src shell
-      epic-wallet init -h
+      ./epic-wallet init --here
     #+end_src
     
 This will create an ~epic-wallet.toml~ file in the current directory that
@@ -231,7 +231,7 @@ to execute the epic-wallet in listen mode, run the following command
 in a new terminal window:
 
     #+begin_src shell
-      epic-wallet -e listen
+      ./epic-wallet listen
     #+end_src
 
 You will be prompted to enter your wallet password. After you have
@@ -242,7 +242,7 @@ inserted it, the wallet will start to listen for requests.
 To check your contents of your wallet, use the info command:
 
  #+begin_src shell
-   epic-wallet info
+   ./epic-wallet info
  #+end_src
 
 You should see an output like this:
